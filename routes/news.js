@@ -12,10 +12,7 @@ router.get("/category", (req, res) => {
         // `http://api.mediastack.com/v1/news?access_key=b31ad94cf08cfb67bcdd203fbe383762&categories=${req.query.cat}&countries=${req.query.country}&languages=en`
         ` https://newsapi.org/v2/top-headlines?country=${req.query.country}&category=${req.query.cat}&apiKey=e2d3e2a0e1f1466995d94400808311d6`
       );
-      res.status(200).json({
-        totalResutls: resp.data.pagination.total,
-        articles: resp.data.data,
-      });
+      res.status(200).json(resp.data);
     } catch (error) {
       console.log(error);
     }
